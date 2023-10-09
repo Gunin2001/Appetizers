@@ -17,6 +17,15 @@
 		06D07FD32ACD86880014BE7E /* AppetizerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D07FD22ACD86880014BE7E /* AppetizerListView.swift */; };
 		06D07FD52ACD86AD0014BE7E /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D07FD42ACD86AD0014BE7E /* AccountView.swift */; };
 		06D07FD72ACD86BE0014BE7E /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D07FD62ACD86BE0014BE7E /* OrderView.swift */; };
+		06DA238E2AD41BE300A79E76 /* AppetizerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA238D2AD41BE300A79E76 /* AppetizerModel.swift */; };
+		06DA23902AD424CC00A79E76 /* AppetizersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA238F2AD424CC00A79E76 /* AppetizersListCell.swift */; };
+		06DA23922AD43EF300A79E76 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA23912AD43EF300A79E76 /* NetworkManager.swift */; };
+		06DA23942AD43FE500A79E76 /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA23932AD43FE500A79E76 /* APError.swift */; };
+		06DA23962AD445CA00A79E76 /* AppetizerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA23952AD445CA00A79E76 /* AppetizerListViewModel.swift */; };
+		06DA23992AD4482200A79E76 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA23982AD4482200A79E76 /* Alert.swift */; };
+		06DA239B2AD44C8600A79E76 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA239A2AD44C8600A79E76 /* Color+Ext.swift */; };
+		06DA239D2AD44CCB00A79E76 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA239C2AD44CCB00A79E76 /* LoadingView.swift */; };
+		06DA239F2AD46DCB00A79E76 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA239E2AD46DCB00A79E76 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +59,15 @@
 		06D07FD22ACD86880014BE7E /* AppetizerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListView.swift; sourceTree = "<group>"; };
 		06D07FD42ACD86AD0014BE7E /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		06D07FD62ACD86BE0014BE7E /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		06DA238D2AD41BE300A79E76 /* AppetizerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerModel.swift; sourceTree = "<group>"; };
+		06DA238F2AD424CC00A79E76 /* AppetizersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersListCell.swift; sourceTree = "<group>"; };
+		06DA23912AD43EF300A79E76 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		06DA23932AD43FE500A79E76 /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
+		06DA23952AD445CA00A79E76 /* AppetizerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListViewModel.swift; sourceTree = "<group>"; };
+		06DA23982AD4482200A79E76 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		06DA239A2AD44C8600A79E76 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		06DA239C2AD44CCB00A79E76 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		06DA239E2AD46DCB00A79E76 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +118,11 @@
 		06D07FA72ACD853D0014BE7E /* Appetizers */ = {
 			isa = PBXGroup;
 			children = (
+				06DA23932AD43FE500A79E76 /* APError.swift */,
+				06DA23912AD43EF300A79E76 /* NetworkManager.swift */,
+				06DA23952AD445CA00A79E76 /* AppetizerListViewModel.swift */,
+				06DA238F2AD424CC00A79E76 /* AppetizersListCell.swift */,
+				06DA238D2AD41BE300A79E76 /* AppetizerModel.swift */,
 				06D07FA82ACD853D0014BE7E /* AppetizersApp.swift */,
 				06D07FAA2ACD853D0014BE7E /* AppetizerTabView.swift */,
 				06D07FAC2ACD85430014BE7E /* Assets.xcassets */,
@@ -107,6 +130,10 @@
 				06D07FD22ACD86880014BE7E /* AppetizerListView.swift */,
 				06D07FD42ACD86AD0014BE7E /* AccountView.swift */,
 				06D07FD62ACD86BE0014BE7E /* OrderView.swift */,
+				06DA23982AD4482200A79E76 /* Alert.swift */,
+				06DA239A2AD44C8600A79E76 /* Color+Ext.swift */,
+				06DA239C2AD44CCB00A79E76 /* LoadingView.swift */,
+				06DA239E2AD46DCB00A79E76 /* RemoteImage.swift */,
 			);
 			path = Appetizers;
 			sourceTree = "<group>";
@@ -266,10 +293,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06DA238E2AD41BE300A79E76 /* AppetizerModel.swift in Sources */,
 				06D07FD52ACD86AD0014BE7E /* AccountView.swift in Sources */,
 				06D07FAB2ACD853D0014BE7E /* AppetizerTabView.swift in Sources */,
+				06DA23962AD445CA00A79E76 /* AppetizerListViewModel.swift in Sources */,
 				06D07FA92ACD853D0014BE7E /* AppetizersApp.swift in Sources */,
+				06DA239B2AD44C8600A79E76 /* Color+Ext.swift in Sources */,
+				06DA23922AD43EF300A79E76 /* NetworkManager.swift in Sources */,
 				06D07FD32ACD86880014BE7E /* AppetizerListView.swift in Sources */,
+				06DA23902AD424CC00A79E76 /* AppetizersListCell.swift in Sources */,
+				06DA239F2AD46DCB00A79E76 /* RemoteImage.swift in Sources */,
+				06DA23992AD4482200A79E76 /* Alert.swift in Sources */,
+				06DA23942AD43FE500A79E76 /* APError.swift in Sources */,
+				06DA239D2AD44CCB00A79E76 /* LoadingView.swift in Sources */,
 				06D07FD72ACD86BE0014BE7E /* OrderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
