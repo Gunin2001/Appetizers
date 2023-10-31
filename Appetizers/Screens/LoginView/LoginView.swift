@@ -6,50 +6,88 @@
 //
 
 import SwiftUI
-//
-//struct LoginView: View {
-//    @State var username : String = ""
-//    var body: some View {
-//        VStack{
-//            Text("Hello!!")
-//                .font(.largeTitle)
-//                .bold()
-//            TextField("Username", text: $username)
-//
-//
-//        }
-//    }
-//}
-//
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginView()
-//    }
-//}
-
-
+import Firebase
 struct LoginView: View {
-    @State var userName: String = ""
-    @State var password: String = ""
-
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var userIsLoggedIn : Bool = true
+    var order = Order()
     var body: some View {
-        VStack {
-            Text("Welcome!")
-                .font(.system(size: 40, weight: .bold, design: .default))
-                .padding()
+        if userIsLoggedIn{
+            AppetizerTabView()
+                .environmentObject(order)
+        }
+        else{
+            loginView
+        }
+    }
+    var loginView : some View{
+        ZStack {
+            RoundedRectangle(cornerRadius: 30, style: .continuous)
+                .foregroundStyle(.linearGradient (colors: [.green,.brandPrimary], startPoint:
+                        .topLeading, endPoint: .bottomTrailing))
+                .frame (width: 1000, height: 600)
+                .rotationEffect(.degrees (135))
+            
+            VStack(spacing: 20) {
+                Text("Welcome")
+                    .bold()
+                    .font(.system(size: 48))
+                
+                LottieView(lottieFile: "circleAvatar",loopMode: .loop)
+                    .frame(width: .infinity,height: 220)
+                
+                APTextField(text: $email, placeholderText: "Enter email")
+                    .textInputAutocapitalization(.never)
+                APSecureTextField(text: $password, placeholderText: "Enter password")
+                Button {
+                    login()
+                } label: {
+                    APButton(title: "Login")
+                }
+                
+                HStack{
+                    Text("Already Registered?")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    Button{
+                        
+                    } label: {
+                        Text("SignUp")
+                            .bold()
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .underline(true)
+                    }
+                    
+                }
 
-//            Image("test")
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .frame(width: 120, height: 120, alignment: .center)
-//                .clipped()
-//                .cornerRadius(60)
-//                .padding(.bottom, 20)
-            LottieView(lottieFile: "circleAvatar")
-            APTextField(text: userName)
-            APTextField(text: password)
-            APButton(title: "Login")
-        }.padding(.bottom, 70)
+            }
+            .frame(width: 350)
+            .onAppear{
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil{
+                        userIsLoggedIn.toggle()
+                    }
+                }
+            }
+        }.ignoresSafeArea()
+    }
+    
+    func login(){
+        Auth.auth().signIn(withEmail: email, password: password){result, error in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        }
+    }
+    func register(){
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print (error!.localizedDescription)
+            }
+        }
     }
 }
 
@@ -61,26 +99,37 @@ struct LoginView_Previews: PreviewProvider {
 
 
 struct APTextField: View {
-    @State var text: String
+    @Binding var text: String
+    @State var placeholderText : String 
     var body: some View {
-        TextField("Enter User Name", text: $text)
-            .tint(.brandPrimary)
+        TextField("", text: $text)
             .padding()
-            .background(Color(uiColor: UIColor(white: 0.1, alpha: 0.1)))
+            .foregroundColor(.white)
+            .background(Color.brandPrimary)
             .cornerRadius(10)
-            .frame( height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            .padding(.leading, 20)
-            .padding(.trailing, 20)
+            .frame( width: .infinity, height: 60)
+            .overlay(alignment: .leading){
+                Text(text.isEmpty ? placeholderText : "")
+                    .foregroundColor(Color(white: 1, opacity: 0.5))
+                    .padding(.leading,15)
+            }
     }
 }
 
-struct LoginText: View {
+struct APSecureTextField: View {
+    @Binding var text: String
+    @State var placeholderText : String
     var body: some View {
-        Text("Login")
+        SecureField("", text: $text)
             .padding()
-            .font(.system(size: 20, weight: .regular, design: .default))
-            .frame(width: 200, height: 50, alignment: .center)
-            .background(Color.blue)
+            .foregroundColor(.white)
+            .background(Color.brandPrimary)
             .cornerRadius(10)
+            .frame( width: .infinity, height: 60)
+            .overlay(alignment: .leading){
+                Text(text.isEmpty ? placeholderText : "")
+                    .foregroundColor(Color(white: 1, opacity: 0.5))
+                    .padding(.leading,15)
+            }
     }
 }

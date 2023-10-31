@@ -8,6 +8,7 @@ import SwiftUI
 import Lottie
 struct LottieView: UIViewRepresentable {
     let lottieFile: String
+    let loopMode : LottieLoopMode
     let animationView = LottieAnimationView()
     func makeUIView(context: Context) -> some UIView {
         let view = UIView(frame: .zero)
@@ -21,5 +22,6 @@ struct LottieView: UIViewRepresentable {
         return view
     }
     func updateUIView(_ uiView: UIViewType, context: Context) {
+        
     }
 }
