@@ -8,9 +8,10 @@
 import SwiftUI
 import Firebase
 struct LoginView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var userIsLoggedIn : Bool = true
+    @State private var email: String = "gunin2001@gmail.com"
+    @State private var password: String = "gunin@123"
+    @State private var userIsLoggedIn : Bool = false
+    @State private var isLoading : Bool = false
     var order = Order()
     var body: some View {
         if userIsLoggedIn{
@@ -18,7 +19,12 @@ struct LoginView: View {
                 .environmentObject(order)
         }
         else{
-            loginView
+            ZStack{
+                loginView
+                if isLoading == true{
+                    LoadingView()
+                }
+            }
         }
     }
     var loginView : some View{
@@ -79,6 +85,11 @@ struct LoginView: View {
             
             if error != nil {
                 print(error?.localizedDescription)
+            }
+            else{
+                print(userIsLoggedIn)
+                isLoading = true;
+                userIsLoggedIn.toggle()
             }
         }
     }
