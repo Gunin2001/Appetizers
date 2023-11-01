@@ -29,6 +29,7 @@ final class AppetizerListViewModel : ObservableObject {
                     switch error{
                     case .invalidURL:
                         alertItem = AlertContext.invalidURL
+                        
                     case .invalidResponse:
                         alertItem = AlertContext.invalidResponse
                     case .invalidData:
